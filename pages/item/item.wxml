@@ -1,0 +1,97 @@
+<!--pages/item/item.wxml-->
+<import src='../common/rating/rating' />
+
+<view class="container">
+  <image class="background" wx:if="{{ movie.images.large }}" src="{{ movie.images.large }}" mode="aspectFill" />
+
+  <block wx:if="{{ movie.title }}">
+    <view class="meta">
+      <image class="poster" src="{{ movie.images.large }}" bindtap="bindPoster" data-poster-url="{{ movie.images.large }}" />
+      <view class="summary-session">
+        <view class="movie-summary">
+          <text class="name">{{movie.id}}</text>
+          <text class="name">{{movie.title}}</text>
+          <text class="subtype">{{movie.durations}} {{movie.year}}/{{movie.genres}}</text>
+          <text class="origin-name">{{originalTitle}}</text>
+          <text class="countries">{{countries}}</text>
+        </view>
+        <view class="movie-rating">
+          <text class="average">{{movie.rating.average}}</text>
+          <view class="rating">
+            <view class="rating-star allstar{{movie.rating.average | 0}}"></view>
+          </view>
+          <text class="ratings_count">{{ratingsCount}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!--剧情简介  -->
+    <view class="desc-session">
+      <text class="title">{{movie.title}}的剧情简介</text>
+      <block wx:if="{{movie.summary.length > 0}}">
+        <view class="desc-wrapper">
+          <text class="desc-content {{showAllDesc ? 'desc-content-auto' : 'desc-content-3line'}}">{{movie.summary}}</text>
+          <block wx:if="{{!showAllDesc}}">
+            <text class="extension" bindtap="handleExtensiontap">展开</text>
+          </block>
+        </view>
+      </block>
+    </view>
+
+    <!-- 影人 -->
+    <view class="directors-casts-session">
+      <view class="title">影人</view>
+      <scroll-view class="directors-casts-scroll" scroll-x="true">
+        <block wx:for="{{ directorsAndCasts }}" wx:key="item">
+          <view class="directors-casts-wrapper" bindtap="handleCelebrity" data-id="{{item.id}}" data-avatar="{{item.avatars.large}}">
+            <view class="directors-casts-content">
+              <image class="image" src="{{item.avatars.small}}"></image>
+              <text class="name">{{item.name}}</text>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+
+    <!-- 预告及剧照 -->
+    <view class='photos'>
+      <text class='subtitle'>预告片 / 剧照</text>
+      <scroll-view scroll-x>
+        <navigator wx:if='{{details.trailers&&details.trailers[0]}}' url='../trailers/trailers?id={{details.id}}&resource={{details.trailers[0].resource_url}}' class='trailer'>
+
+          <image class='image' src='{{details.trailers[0].medium}}' />
+          <view class='front'>
+            <view class='icon'>
+              <image src='/assets/images/white_play_icon.png' mode='widthFix' />
+            </view>
+          </view>
+        </navigator>
+        
+        <block wx:for='{{movie.photos}}' wx:key='id'>
+          <view class='trailer' data-img='{{item.image}}' bindtap='onImagePre'>
+            <image class='image' src='{{item.image}}' />
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+
+    <!-- 短评 -->
+    <view class='comments'>
+      <text class='subtitle'>短评({{commentsCount}})</text>
+      <block wx:for='{{comments}}' wx:key='id'>
+        <view class='item-comment'>
+          <image class='user-header' src='{{item.author.avatar}}'></image>
+          <view class='comment-right'>
+            <view class='name-rating'>
+              <text class='username'>{{item.author.name}}</text>
+              <template is='rating' data='{{rating:item.rating.value,max:5}}' />
+            </view>
+            <text class='date'>{{item.created_at}}</text>
+            <text>{{item.content}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </block>
+</view>

@@ -1,0 +1,97 @@
+.slide swiper {
+  height: 480rpx;
+}
+
+.slide swiper {
+  height: 400rpx;
+}
+
+.slide  swiper image {
+  height: 400rpx;
+  width: 100%;
+}
+
+.board {
+  box-sizing: border-box;
+  background-color: #f8f9fb;
+}
+
+.board-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  font-size: 20rpx;
+  margin: 40rpx 0;
+  padding: 20rpx;
+  background-color: #fff;
+}
+
+.board-item .title {
+  display: flex;
+  margin-bottom: 10rpx;
+  width: 100%;
+}
+
+.board-item .title text {
+  flex: 1;
+}
+
+.board-item .title image {
+  height: 20rpx;
+  width: 20rpx;
+}
+
+.board-item .content {
+  height: 300rpx;
+}
+
+.board-item .content .inner {
+  display: flex;
+  flex-direction: row;
+  height: 300rpx;
+  width: 900rpx;
+}
+
+.board-item .content .inner .movie-item {
+  display: flex;
+  flex-direction: column;
+  width: 180rpx;
+  margin: 10rpx;
+}
+
+.board-item .content .inner .movie-item image {
+  width: 180rpx;
+  height: 250rpx;
+}
+
+.board-item .content .inner .movie-item text {
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.search-placeholder {
+  flex: 1;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  color: #9e9e9e;
+}
+.movie-scroll, selected-scroll {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.session-search {
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-width: 1px 0px 1px 0px;
+  border-style: solid;
+  border-color: #e6e6e6;
+}
+
+.session-search-spacing {
+  margin-bottom: 30rpx;
+}

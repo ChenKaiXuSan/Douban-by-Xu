@@ -1,0 +1,46 @@
+<view class="container">
+  <!-- 滑动图片 -->
+  <view class="slide">
+    <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+      <!-- 滑动导航 -->
+      <swiper-item wx:for="{{ boards[0].movies }}" wx:key="id">
+        <navigator url="../item/item?id={{ item.id}}">
+          <image src="{{ item.images.large }}" mode="aspectFill" />
+        </navigator>
+      </swiper-item>
+
+      <!-- 滑动导航 -->
+      <!-- 
+      <swiper-item>
+        <navigator url="../item/item">
+          <image src="../../images/湄公河行动-list.jpg" mode="aspectFill" />
+        </navigator>
+      </swiper-item>
+      -->
+    </swiper>
+  </view>
+
+    <view class="kind-container">
+        <navigator class='item-container' hover-class='hover-bg'
+          url='/pages/classification/index'
+        >
+          <template is="circle" 
+            data="{{imgUrl:'pages/images/discover_classify_group_icon.png',title:'分类查找'}}"
+          />
+        </navigator>
+        <navigator class='item-container' hover-class='hover-bg'
+          url='/pages/card/card'
+        >
+          <template is="circle" 
+            data="{{date:nowDay,title:'每日电影卡片'}}"
+          />
+        </navigator>
+        <navigator class='item-container' hover-class='hover-bg'
+          url='/pages/intheaters/in_theaters'
+        >
+          <template is="circle" 
+            data="{{imgUrl:'/pages/images/discover_classify_cinema_icon.png',title:'影院热映'}}"
+          />
+        </navigator>
+      </view>
+</view>

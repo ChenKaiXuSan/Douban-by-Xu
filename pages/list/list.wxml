@@ -1,0 +1,9 @@
+<!-- 引入通用模板 -->
+<import src="../common/movie-list"/>
+
+<!-- 渲染普通的单项数据 -->
+<view class="container">
+<template is="movie-list" data="{{ movies, loading, hasMore }}"/> 
+</view>
+
+

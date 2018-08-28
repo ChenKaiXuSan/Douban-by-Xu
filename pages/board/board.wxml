@@ -1,0 +1,49 @@
+<!--pages/board/board.wxml-->
+<view class="container">
+
+  <!-- 滑动图片 -->
+  <!-- <view class="slide">
+    <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+      <swiper-item wx:for="{{ boards[0].movies }}" wx:key="id">
+        <navigator url="../item/item?id={{ item.id}}">
+          <image src="{{ item.images.large }}" mode="aspectFill" />
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view> -->
+
+  <view class="container" bindtouchmove="handleTouchMove">
+    <view class="session-search session-search-spacing">
+      <icon class="session-search-icon" type="search" size="16"></icon>
+      <text class="search-placeholder" bindtap="bindSearchNavigate">搜索电影</text>
+    </view>
+  </view>
+
+
+  <!-- 榜单列表 -->
+  <view class="board" scroll-y="true">
+    <!-- 榜单名称 -->
+    <block wx:for="{{ boards }}" wx:key="key">
+      <view class="board-item">
+        <navigator url="../list/list?type={{ item.key }}&title={{ item.title }}" hover-class="none">
+          <view class="title">
+            <text>{{ item.title }}</text>
+            <image src="../../images/arrowright.png" mode="aspectFill" />
+          </view>
+        </navigator>
+
+        <!-- 榜单内容展示 -->
+        <scroll-view class="content" scroll-x="true">
+          <view class="inner">
+            <navigator wx:for="{{ item.movies }}" wx:key="id" url="../item/item?id={{ item.id }}">
+              <view class="movie-item">
+                <image src="{{ item.images.large }}" mode="aspectFill" />
+                <text>{{ item.title }}</text>
+              </view>
+            </navigator>
+          </view>
+        </scroll-view>
+      </view>
+    </block>
+  </view>
+</view>
