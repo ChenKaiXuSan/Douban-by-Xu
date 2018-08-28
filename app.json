@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/splash/splash",
+    "pages/profile/profile",
+    "pages/board/board",
+    "pages/discovery/discovery",
+    "pages/search/search",
+    "pages/logs/logs",
+    "pages/item/item",
+    "pages/list/list",
+    "pages/movie/movie-poster/movie-poster",
+    "pages/movie/celebrity/celebrity",
+    "pages/evaluate/evaluate",
+    "pages/userinfo/userinfo",
+    "pages/bindphone/index",
+    "pages/information/profile",
+    "pages/setting/setting"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#40586d",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "影视影讯检索工具",
+    "backgroundColor": "#f8f9fb",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "backgroundColor": "#f8f9fb",
+    "list": [
+     
+      {
+        "text": "榜单",
+        "pagePath": "pages/board/board",
+        "iconPath": "images/tab_movies_unchecked.png",
+        "selectedIconPath": "images/tab_movies_checked.png"
+      },
+      {
+        "text": "我",
+        "pagePath": "pages/profile/profile",
+        "iconPath": "images/tab_usercenter_unchecked.png",
+        "selectedIconPath": "images/tab_usercenter_checked.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "downloadFile": 20000
+  },
+  "debug": false
+}
